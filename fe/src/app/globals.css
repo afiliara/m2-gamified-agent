@@ -27,6 +27,20 @@ img { image-rendering: pixelated; display: block; }
   50% { opacity: .25; }
 }
 
+@keyframes lungeL {
+  0%, 100% { transform: translateX(0) rotate(-2deg); }
+  45% { transform: translateX(17px) rotate(5deg); }
+}
+@keyframes lungeR {
+  0%, 100% { transform: scaleX(-1) translateX(0) rotate(-2deg); }
+  45% { transform: scaleX(-1) translateX(17px) rotate(5deg); }
+}
+@keyframes clashBurst {
+  0%, 28%, 100% { opacity: 0; transform: translate(-50%, 0) scale(.3) rotate(0); }
+  44% { opacity: 1; transform: translate(-50%, 0) scale(1.15) rotate(20deg); }
+  62% { opacity: .6; transform: translate(-50%, 0) scale(.85) rotate(30deg); }
+}
+
 @keyframes bob-center {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-6px); }

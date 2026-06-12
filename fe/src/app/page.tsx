@@ -449,6 +449,7 @@ export default function Home() {
               }}
             >
               <button
+                onClick={() => (window.location.href = "/lobby")}
                 style={{
                   display: "flex",
                   alignItems: "center",

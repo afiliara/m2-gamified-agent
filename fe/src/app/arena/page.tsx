@@ -75,7 +75,7 @@ export default function ArenaPage() {
             {/* left */}
             <div className="flex items-center" style={{ gap: 12 }}>
               <button
-                onClick={() => (window.location.href = "/")}
+                onClick={() => (window.location.href = "/lobby")}
                 style={{
                   width: 48, height: 46, display: "grid", placeItems: "center",
                   background: "linear-gradient(180deg,#7e9fe8 0%,#4f76d8 100%)",
@@ -104,8 +104,8 @@ export default function ArenaPage() {
             {/* center: currency pills */}
             <div className="flex items-center" style={{ gap: 11 }}>
               {[
-                { icon: "/nav-stake.png", val: "12,458" },
-                { icon: "/gem.png",       val: "2,350"  },
+                { icon: "/mantle-logo.png", val: "12,458" },
+                { icon: "/usdc-logo.png",   val: "2,350"  },
               ].map(({ icon, val }) => (
                 <div
                   key={val}
@@ -123,31 +123,6 @@ export default function ArenaPage() {
                   <span className="font-press" style={{ fontSize: 12, color: "#fff", letterSpacing: ".5px" }}>{val}</span>
                 </div>
               ))}
-              {/* crystal with plus */}
-              <div
-                className="flex items-center"
-                style={{
-                  gap: 9,
-                  background: "linear-gradient(180deg,#3a5db0 0%,#2c4790 100%)",
-                  border: "3px solid #1f3170", borderRadius: 13,
-                  padding: "8px 14px 8px 9px",
-                  boxShadow: "0 4px 0 #1f3170, inset 0 2px 0 rgba(255,255,255,.18)",
-                  minWidth: 120,
-                }}
-              >
-                <img src="/crystal.png" alt="" style={{ width: 24, height: 24, imageRendering: "pixelated" }} />
-                <span className="font-press" style={{ fontSize: 12, color: "#fff", letterSpacing: ".5px" }}>540</span>
-                <div
-                  className="font-press grid place-items-center"
-                  style={{
-                    width: 26, height: 26, marginLeft: 2,
-                    background: "linear-gradient(180deg,#a36cf0 0%,#7e44d8 100%)",
-                    border: "2px solid #4a2ea0", borderRadius: 7,
-                    fontSize: 12, color: "#fff", cursor: "pointer",
-                    boxShadow: "inset 0 2px 0 rgba(255,255,255,.3)",
-                  }}
-                >+</div>
-              </div>
             </div>
 
             {/* right: icon buttons */}
@@ -396,7 +371,7 @@ export default function ArenaPage() {
                 <div className="flex flex-col" style={{ gap: 6 }}>
                   <span className="font-press" style={{ fontSize: 8, color: "#9a8f6e", letterSpacing: ".5px" }}>PRIZE POOL</span>
                   <div className="font-press flex items-center" style={{ gap: 7, fontSize: 13, color: "#e08a12" }}>
-                    <img src="/nav-stake.png" alt="" style={{ width: 20, height: 20, imageRendering: "pixelated" }} />
+                    <img src="/mantle-logo.png" alt="" style={{ width: 20, height: 20, imageRendering: "pixelated" }} />
                     25,000
                   </div>
                 </div>
