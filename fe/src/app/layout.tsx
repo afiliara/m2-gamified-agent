@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Press_Start_2P, Silkscreen } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${pressStart2P.variable} ${silkscreen.variable}`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

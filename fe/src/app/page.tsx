@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const AGENTS = [
   {
     nameColor: "#f2941b",
     left: "9.5%",
-    top: "43%",
+    top: "48%",
     name: "BLITZ",
     line: "Going LONG on ETH",
     sprite: "/blitz.png",
     delay: "0s",
-    spriteH: "150px",
+    spriteH: "110px",
   },
   {
     nameColor: "#e85b9e",
@@ -21,7 +22,7 @@ const AGENTS = [
     line: "Overleveraged... this will crash!",
     sprite: "/nova.png",
     delay: ".3s",
-    spriteH: "150px",
+    spriteH: "110px",
   },
   {
     nameColor: "#2a8fe0",
@@ -31,17 +32,17 @@ const AGENTS = [
     line: "Watching BTC liquidity zones.",
     sprite: "/byte.png",
     delay: ".6s",
-    spriteH: "132px",
+    spriteH: "96px",
   },
   {
     nameColor: "#8a63e6",
     left: "74%",
-    top: "42%",
+    top: "48%",
     name: "ZENITH",
     line: "Patience is my edge.",
     sprite: "/zenith.png",
     delay: ".9s",
-    spriteH: "150px",
+    spriteH: "110px",
   },
 ];
 
@@ -141,27 +142,39 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Connect Wallet */}
-            <button
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                fontFamily: "var(--font-press-start), monospace",
-                fontSize: "11px",
-                color: "#fff",
-                letterSpacing: ".5px",
-                background: "linear-gradient(180deg,#9b78ee 0%, #7a52da 60%, #6a44c9 100%)",
-                border: "3px solid #3a2575",
-                borderRadius: "13px",
-                padding: "11px 18px",
-                cursor: "pointer",
-                boxShadow: "0 4px 0 #3a2575, inset 0 2px 0 rgba(255,255,255,.35)",
+            {/* Connect Wallet — RainbowKit */}
+            <ConnectButton.Custom>
+              {({ account, chain, openAccountModal, openChainModal, openConnectModal, mounted }) => {
+                const connected = mounted && account && chain;
+                return (
+                  <button
+                    onClick={connected ? (chain.unsupported ? openChainModal : openAccountModal) : openConnectModal}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      fontFamily: "var(--font-press-start), monospace",
+                      fontSize: "11px",
+                      color: "#fff",
+                      letterSpacing: ".5px",
+                      background: "linear-gradient(180deg,#9b78ee 0%, #7a52da 60%, #6a44c9 100%)",
+                      border: "3px solid #3a2575",
+                      borderRadius: "13px",
+                      padding: "11px 18px",
+                      cursor: "pointer",
+                      boxShadow: "0 4px 0 #3a2575, inset 0 2px 0 rgba(255,255,255,.35)",
+                    }}
+                  >
+                    <img src="/wallet.PNG" alt="" style={{ width: "26px", height: "26px" }} />
+                    {connected
+                      ? chain.unsupported
+                        ? "WRONG NETWORK"
+                        : account.displayName
+                      : "CONNECT WALLET"}
+                  </button>
+                );
               }}
-            >
-              <img src="/wallet.PNG" alt="" style={{ width: "26px", height: "26px" }} />
-              CONNECT WALLET
-            </button>
+            </ConnectButton.Custom>
           </nav>
 
           {/* ===== HERO CARD ===== */}
@@ -467,34 +480,47 @@ export default function Home() {
                 />
               </button>
 
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "9px",
-                  fontSize: "12.5px",
-                  fontWeight: 700,
-                  color: "#fff",
-                  letterSpacing: ".5px",
-                  background: "rgba(46,35,86,.78)",
-                  border: "2px solid rgba(255,255,255,.35)",
-                  borderRadius: "20px",
-                  padding: "8px 18px",
-                  backdropFilter: "blur(2px)",
+              <ConnectButton.Custom>
+                {({ account, chain, openAccountModal, openChainModal, openConnectModal, mounted }) => {
+                  const connected = mounted && account && chain;
+                  return (
+                    <div
+                      onClick={connected ? (chain.unsupported ? openChainModal : openAccountModal) : openConnectModal}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "9px",
+                        fontSize: "12.5px",
+                        fontWeight: 700,
+                        color: "#fff",
+                        letterSpacing: ".5px",
+                        background: "rgba(46,35,86,.78)",
+                        border: "2px solid rgba(255,255,255,.35)",
+                        borderRadius: "20px",
+                        padding: "8px 18px",
+                        backdropFilter: "blur(2px)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: "9px",
+                          height: "9px",
+                          borderRadius: "50%",
+                          background: connected ? "#5fe08a" : "#ff6b6b",
+                          boxShadow: `0 0 8px ${connected ? "#5fe08a" : "#ff6b6b"}`,
+                          display: "inline-block",
+                        }}
+                      />
+                      {connected
+                        ? chain.unsupported
+                          ? "WRONG NETWORK"
+                          : `${account.displayName} — READY`
+                        : "CONNECT WALLET TO START YOUR JOURNEY"}
+                    </div>
+                  );
                 }}
-              >
-                <span
-                  style={{
-                    width: "9px",
-                    height: "9px",
-                    borderRadius: "50%",
-                    background: "#5fe08a",
-                    boxShadow: "0 0 8px #5fe08a",
-                    display: "inline-block",
-                  }}
-                />
-                CONNECT WALLET TO START YOUR JOURNEY
-              </div>
+              </ConnectButton.Custom>
             </div>
 
             {/* ===== STATS BAR ===== */}
