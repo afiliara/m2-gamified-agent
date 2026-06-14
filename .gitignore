@@ -9,6 +9,8 @@ fe/next-env.d.ts
 # Backend
 dist/
 be/dist/
+runtime/
+be/runtime/
 
 # Foundry
 sc/lib/

@@ -1,7 +1,7 @@
 # Backend Operator Design Spec
 
 Tanggal: 2026-06-14  
-Status: Draft untuk review  
+Status: Approved dan implemented  
 Scope utama: backend operator otomatis untuk battle engine hackathon Mantle
 
 ## 1. Ringkasan Tujuan

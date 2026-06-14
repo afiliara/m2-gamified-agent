@@ -5,7 +5,7 @@ Last updated: 2026-06-14
 
 ## Current Focus
 
-`SC live, FE core loop working, backend operator spec written and awaiting review`
+`SC live, FE core loop working, backend operator implemented, pending live OpenRouter run and FE settlement sync`
 
 ## Global Order
 
@@ -25,8 +25,8 @@ Last updated: 2026-06-14
 - [x] Implement Phase D: claim system
 - [x] Implement Phase E: hardening dan integration readiness
 - [x] Integrasi FE ke ABI dan event contract
-- [ ] Review backend operator design spec
-- [ ] Implement backend round operator dan battle engine
+- [x] Review backend operator design spec
+- [x] Implement backend round operator dan battle engine
 - [ ] Sinkronisasi FE live data
 - [ ] Final FE polish untuk demo
 
