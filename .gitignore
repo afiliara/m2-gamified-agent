@@ -4,6 +4,7 @@ node_modules/
 # Frontend
 .next/
 fe/.next/
+fe/next-env.d.ts
 
 # Backend
 dist/

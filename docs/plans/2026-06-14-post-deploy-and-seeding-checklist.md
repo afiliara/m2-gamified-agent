@@ -26,7 +26,7 @@ Pastikan nilai berikut tersedia di [sc/.env](</C:/Users/bagas/Downloads/Dapp Pro
 
 Dan untuk frontend:
 
-- [fe/.env.local](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env.local>)
+- [fe/.env](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env>)
 
 ## Contract Addresses
 
@@ -200,7 +200,7 @@ Expected:
 
 ### 1. Env frontend wajib terisi
 
-Isi [fe/.env.local](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env.local>) dari [fe/.env.example](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env.example>).
+Isi [fe/.env](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env>) dari [fe/.env.example](</C:/Users/bagas/Downloads/Dapp Project/Mantle Hackathon/m2-gamified-agent/fe/.env.example>).
 
 ### 2. Build check
 

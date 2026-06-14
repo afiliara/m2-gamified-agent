@@ -1,8 +1,7 @@
 import type { Abi, Address } from "viem";
 import { mantleSepoliaTestnet } from "wagmi/chains";
 
-function getPublicEnv(name: string) {
-  const value = process.env[name];
+function requirePublicEnv(value: string | undefined, name: string) {
   if (!value) {
     throw new Error(`Missing required public env: ${name}`);
   }
@@ -11,26 +10,45 @@ function getPublicEnv(name: string) {
 
 export const mantleSepolia = mantleSepoliaTestnet;
 
-export const mantleSepoliaRpcUrl = getPublicEnv(
+export const mantleSepoliaRpcUrl = requirePublicEnv(
+  process.env.NEXT_PUBLIC_MANTLE_SEPOLIA_RPC_URL,
   "NEXT_PUBLIC_MANTLE_SEPOLIA_RPC_URL",
 );
 
-export const mantleSepoliaExplorerUrl = getPublicEnv(
+export const mantleSepoliaExplorerUrl = requirePublicEnv(
+  process.env.NEXT_PUBLIC_MANTLE_SEPOLIA_EXPLORER_URL,
   "NEXT_PUBLIC_MANTLE_SEPOLIA_EXPLORER_URL",
 );
 
 export const m2Deployment = {
-  mockUsdc: getPublicEnv("NEXT_PUBLIC_M2_MOCK_USDC_ADDRESS") as Address,
-  registry: getPublicEnv("NEXT_PUBLIC_M2_AGENT_REGISTRY_ADDRESS") as Address,
-  reputationRegistry: getPublicEnv(
+  mockUsdc: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_MOCK_USDC_ADDRESS,
+    "NEXT_PUBLIC_M2_MOCK_USDC_ADDRESS",
+  ) as Address,
+  registry: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_AGENT_REGISTRY_ADDRESS,
+    "NEXT_PUBLIC_M2_AGENT_REGISTRY_ADDRESS",
+  ) as Address,
+  reputationRegistry: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_REPUTATION_REGISTRY_ADDRESS,
     "NEXT_PUBLIC_M2_REPUTATION_REGISTRY_ADDRESS",
   ) as Address,
-  validationRegistry: getPublicEnv(
+  validationRegistry: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_VALIDATION_REGISTRY_ADDRESS,
     "NEXT_PUBLIC_M2_VALIDATION_REGISTRY_ADDRESS",
   ) as Address,
-  treasury: getPublicEnv("NEXT_PUBLIC_M2_TREASURY_VAULT_ADDRESS") as Address,
-  arena: getPublicEnv("NEXT_PUBLIC_M2_ARENA_ADDRESS") as Address,
-  deployer: getPublicEnv("NEXT_PUBLIC_M2_DEPLOYER_ADDRESS") as Address,
+  treasury: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_TREASURY_VAULT_ADDRESS,
+    "NEXT_PUBLIC_M2_TREASURY_VAULT_ADDRESS",
+  ) as Address,
+  arena: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_ARENA_ADDRESS,
+    "NEXT_PUBLIC_M2_ARENA_ADDRESS",
+  ) as Address,
+  deployer: requirePublicEnv(
+    process.env.NEXT_PUBLIC_M2_DEPLOYER_ADDRESS,
+    "NEXT_PUBLIC_M2_DEPLOYER_ADDRESS",
+  ) as Address,
 } as const satisfies Record<string, Address>;
 
 export const m2Constants = {

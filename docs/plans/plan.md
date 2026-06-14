@@ -5,7 +5,7 @@ Last updated: 2026-06-14
 
 ## Current Focus
 
-`SC implemented, ready for review and integration`
+`SC live, FE core loop working, backend operator spec written and awaiting review`
 
 ## Global Order
 
@@ -24,7 +24,8 @@ Last updated: 2026-06-14
 - [x] Implement Phase C: settlement engine
 - [x] Implement Phase D: claim system
 - [x] Implement Phase E: hardening dan integration readiness
-- [ ] Integrasi FE ke ABI dan event contract
+- [x] Integrasi FE ke ABI dan event contract
+- [ ] Review backend operator design spec
 - [ ] Implement backend round operator dan battle engine
 - [ ] Sinkronisasi FE live data
 - [ ] Final FE polish untuk demo
